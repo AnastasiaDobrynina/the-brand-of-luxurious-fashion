@@ -1,0 +1,688 @@
+@import "vars";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+@mixin textStyle($fs, $fw, $c) {
+  font-size: $fs;
+  font-family: Lato;
+  font-weight: $fw;
+  color: $c;
+}
+
+.site-container {
+  width: $siteWidth;
+  margin: 0 auto;
+  &_edges {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// стили хэдера
+
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-left {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+.brand-logo {
+  @include textStyle(27px, 300, #222);
+  &_span {
+    color: $selectColor;
+    font-weight: 900;
+  }
+}
+
+.form-div {
+  // height: 38px;
+  // width: 402px;
+  // border-color: $borderColor;
+  display: flex;
+  // flex-wrap: nowrap;
+  // justify-content: space-between;
+  // align-items: center;
+  margin-left: 38px;
+}
+
+.browse-btn {
+  position: relative;
+  //width: 87px;
+  //height: 38px;
+  background-color: #cdcdcc;
+  background-image: linear-gradient(180deg, #f9f9f9 0%, #f5f5f5 100%);
+  border: 1px solid #e6e6e6;
+  border-radius: 3px 0px 0px 3px;
+  @include textStyle(14px, 300, #222);
+  color: #222;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.browse-btn:hover {
+  background-color: $selectColor;
+  background-image: none;
+  color: $sitebackground;
+  transition: all 0.3s;
+  .browse {
+    color: $sitebackground;
+    transition: all 0.3s;
+  }
+  .mega-box {
+    display: block;
+  }
+}
+
+.browse {
+  color: #222;
+  padding-left: 6px;
+}
+
+.head-input {
+  z-index: 1;
+  width: 260px;
+  //height: 38px;
+  background-color: #ffffff;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  padding: 10px 16px;
+}
+
+.head-input:focus {
+  outline: 2px solid $selectColor;
+}
+
+.search-btn {
+  border-radius: 0px 3px 3px 0px;
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  color: #a4a4a4;
+}
+
+.search-btn:hover {
+  background-color: $selectColor;
+  transition: all 0.3s;
+  color: $sitebackground;
+}
+
+.menu-right {
+  //margin-left: 320px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.cart-icon {
+  position: relative;
+  font-size: 24px;
+  padding-right: 26px;
+}
+
+.cart-icon:hover {
+  color: $selectColor;
+  transition: 0.3s;
+  .mega-box {
+    display: block;
+  }
+}
+
+.account {
+  padding-left: 7px;
+  padding-right: 0;
+}
+
+.account-btn {
+  @include textStyle(15px, 400, $sitebackground);
+  line-height: 32px;
+  background-color: $selectColor;
+  padding: 3px 16px;
+  border: 1px solid $sitebackground;
+}
+
+.account-btn:hover {
+  background-color: $sitebackground;
+  border: 1px solid $selectColor;
+  color: $selectColor;
+  transition: all 0.3s;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-top: 1px solid $borderColor; // сделать на всю длину
+}
+.menu-list {
+  padding-top: 12.5px;
+  padding-bottom: 12.5px;
+  position: relative;
+}
+
+.menu-list:hover .mega-box {
+  display: flex;
+}
+
+.menu-link {
+  padding-left: 25px;
+  padding-right: 25px;
+
+  @include textStyle(14px, 700, #222);
+  font-size: 14px;
+  line-height: 26px;
+  text-transform: uppercase;
+}
+
+.menu-link:hover {
+  color: $selectColor;
+  transition: all 0.3s;
+}
+
+.mega-box {
+  z-index: 1;
+  padding: 20px;
+  border: 1px solid $borderColor;
+  background-color: $sitebackground;
+  border-radius: 5px;
+  position: absolute;
+  top: 44px;
+  display: none;
+  text-align: left;
+  &_block {
+    top: 36px;
+    left: 0;
+  }
+  &_cart {
+    top: 33px;
+    left: -24px;
+  }
+}
+
+.mega-title {
+  width: 235px;
+  border-bottom: 1px solid $borderColor;
+  @include textStyle(14px, 400, #232323);
+  line-height: 32px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.sale-img {
+  display: block;
+  margin-top: 22px;
+  position: relative;
+}
+
+.sale-p {
+  @include textStyle(22px, 900, $sitebackground);
+  position: absolute;
+  text-transform: uppercase;
+  font-family: Lato;
+  line-height: 28px;
+  top: 50px;
+  left: 178px;
+  letter-spacing: 0.025em;
+}
+
+.mega-link {
+  @include textStyle(14px, 400, #646464);
+  line-height: 28px;
+  display: block;
+}
+
+.mega-link:hover {
+  color: $selectColor;
+  transition: 0.3s;
+}
+
+.mega-box::before {
+  content: "";
+  display: block;
+  height: 16px;
+  width: 16px;
+  background-color: $sitebackground;
+  position: absolute;
+  top: -9px;
+  left: 30px;
+  transform: rotate(45deg);
+  border-top: 1px solid $borderColor;
+  border-left: 1px solid $borderColor;
+}
+
+.menu-item {
+  margin-right: 46px;
+  //margin-top: 30px;
+  &_block:not(:first-of-type) {
+    margin-top: 30px;
+  }
+}
+
+.menu-item:last-of-type {
+  margin-right: 0;
+}
+
+.last:hover .mega-box {
+  right: 0;
+  left: auto;
+}
+
+.last:hover .mega-box::before {
+  left: auto;
+  right: 40px;
+}
+
+// стили для большой картинки
+
+.img-container {
+  position: relative;
+  background-color: $borderColor;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
+}
+
+.main-img {
+  //position: relative;
+  width: $siteWidth;
+}
+
+.main-container {
+  height: 100%;
+  position: absolute;
+  //top: 0;
+  display: flex;
+  //align-items: center;
+  width: 510px;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 24px;
+}
+
+.main-container::before {
+  content: "";
+  position: absolute;
+  background-color: $selectColor;
+  width: 12px;
+  height: 96px;
+  //margin-right: 12px;
+  left: -22px;
+  top: 192px;
+}
+
+.main {
+  font-family: Lato;
+  line-height: 1.2;
+  font-weight: 900;
+  text-transform: uppercase;
+  &_the-brand {
+    font-size: 60px;
+    color: #222222;
+  }
+  /*
+    styles for "OF LUXERIOUS "
+    */
+  &_of-luxerious {
+    font-size: 40px;
+    color: #222222;
+  }
+  /*
+    styles for "FASHION"
+    */
+  &_fashion {
+    font-size: 40px;
+    color: #f16d7f;
+  }
+}
+// стили для баннера
+
+//сделать fallback с инлайном
+// сделать кликабельным с анимацией
+.banner-container {
+  margin-top: 88px;
+  display: flex;
+  //gap: 20px;
+}
+
+.banner-ph-container {
+  display: block;
+  position: relative;
+  transition: all 0.5s;
+}
+
+.banner-ph-container:hover {
+  transform: scale(1.02);
+  transition: all 0.5s;
+}
+
+.banner-ph {
+  margin: 10px;
+}
+
+.badge-container {
+  position: absolute;
+  background-color: $sitebackground;
+  top: 36px;
+  left: 9px;
+  padding: 17px 20px;
+}
+
+.badge {
+  text-transform: uppercase;
+  font-family: Lato;
+  line-height: 1.2;
+  font-weight: 900;
+  &_desc {
+    font-size: 18px;
+    color: #222222;
+  }
+  &_category {
+    font-size: 30px;
+    color: #f16d7f;
+  }
+}
+
+// стили для feature
+
+// radial-gradient( circle 
+//     farthest-corner at 500px 200px,
+//     transparent 30%,
+//     #000 100%
+
+.feature {
+  display: flex;
+  margin-top: 113px;
+  background-color: #222224;
+  transition: all 0.5s;
+}
+
+.feature:hover {
+  transform: scale(1.02);
+  transition: all 0.5s;
+}
+
+.f-header-desc {
+  @include textStyle(20px, 700, #fbfbfb);
+  line-height: 1.2;
+  letter-spacing: 0.025em;
+  margin-bottom: 15px;
+}
+
+.desc-container {
+  width: 222px;
+}
+
+.f-p-desc {
+  @include textStyle(14px, 300, #fbfbfb);
+  line-height: 24px;
+  letter-spacing: 0.025em;
+}
+
+.fa-feature {
+  color: $selectColor;
+  font-size: 32px;
+  padding: 0 31px;
+}
+
+.feature-desc-item {
+  display: flex;
+}
+.feature-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+// стили для subscribe
+
+.subscribe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 73px;
+  position: relative;
+  height: 438px;
+  background-color: rgba(242, 242, 242, 0.5);
+}
+
+.subscribe::before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/background_image.png");
+  //background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.subscribe::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: $sitebackground;
+}
+
+.citation {
+  @include textStyle(16px, 400, #222224);
+  line-height: 26px;
+  font-style: italic;
+  letter-spacing: 0.025em;
+}
+
+.author {
+  @include textStyle(16px, 700, $selectColor);
+  line-height: 26px;
+  letter-spacing: 0.025em;
+}
+
+.subauthor {
+  @include textStyle(12px, 300, #222224);
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 300;
+}
+
+.subscribe-form-container {
+  //position: absolute;
+  // width: 50%;
+  // height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.subscribe-form {
+  padding-top: 35px;
+  display: flex;
+}
+.subscribe-input {
+  outline: none;
+  border: 0px;
+  border-radius: 23px 0 0 23px;
+  width: 230px;
+  height: 46px;
+  background-color: #e1e1e1;
+  @include textStyle(14px, 400, #222224);
+  //line-height: 54px;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.subscribe-btn {
+  display: flex;
+  @include textStyle(15px, 400, $sitebackground);
+  //line-height: 32px;
+  background-color: $selectColor;
+  padding: 21px 18px;
+  border: 1px solid $selectColor;
+  width: 104px;
+  height: 46px;
+  border-radius: 0px 23px 23px 0px;
+  align-items: center;
+}
+
+.subscribe-btn:hover {
+  background-color: #e1e1e1;
+  border: 1px solid $selectColor;
+  color: $selectColor;
+  transition: all 0.3s;
+}
+
+.subscribe-text {
+  @include textStyle(14px, 400, #222224);
+  line-height: 24px;
+  text-align: center;
+  &_big {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+}
+.figcaption {
+  width: 395px;
+  padding-left: 28px;
+}
+
+.slider {
+  display: flex;
+}
+
+.pseudo-slider {
+  display: flex;
+}
+
+.span {
+  margin-top: 41px;
+  display: block;
+  width: 38px;
+  height: 4px;
+  margin-right: 13px;
+  &_grey {
+    background-color: #d6d6d6;
+  }
+  &_select {
+    background-color: $selectColor;
+  }
+}
+
+// тег figure fug caption
+
+// полосочка на фото: span с высотой 100%
+
+// сделать кнопку бэмом
+
+.footer-container {
+  margin-top: 109px;
+  margin-bottom: 170px;
+  display: flex;
+  //width: $siteWidth;
+  align-items: center;
+  //justify-content: center;
+  // margin-left: 229px;
+  // margin-right: 229px;
+  //gap: 64px;
+  // &_stripe {
+  //     gap: 690px;
+  // }
+}
+.footer-left {
+  width: 430px;
+  margin-right: 64px;
+}
+.info {
+  @include textStyle(14px, 300, #898989);
+  line-height: 24px;
+  margin-top: 41px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-item {
+  margin-right: 100px;
+}
+
+.nav-item:last-of-type {
+  margin-right: 0;
+}
+
+.footer-nav-header {
+  @include textStyle(18px, 700, $selectColor);
+  line-height: 50px;
+  margin-bottom: 20px;
+}
+
+.footer-nav-link {
+  @include textStyle(16px, 400, #898989);
+  line-height: 50px;
+}
+
+.footer-nav-link:hover {
+  color: $selectColor;
+  transition: all 0.3s;
+}
+
+.footer-stripe {
+  background-color: #e6e6e6;
+  height: 79px;
+  display: flex;
+  align-items: center;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  .fa-brands {
+    display: flex;
+    background-color: #fff;
+    height: 32px;
+    width: 32px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 42px;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    color: #b2b2b2;
+  }
+  .fa-brands:hover {
+    background-color: $selectColor;
+    color: #fff;
+    transition: all 0.3s;
+  }
+}
+
+.rights {
+  @include textStyle(16px, 400, #7a7a7a);
+  line-height: 42px;
+}
