@@ -9,7 +9,7 @@ This project was created based on a Figma design and utilizes the Sass preproces
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/AnastasiaDobrynina/the-brand-of-luxurious-fashion
    ```
 3. Open the project in your preferred code editor or directly in a browser.
 
